@@ -1,0 +1,7 @@
+torch==1.5.0+cpu
+matplotlib==3.2.1
+torchvision==0.6.0+cpu
+numpy==1.18.3
+pandas==1.0.3
+Py_FS==0.0.6.19
+scikit_learn==0.24.2
