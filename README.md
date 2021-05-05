@@ -26,5 +26,6 @@ Required Directory Structure:
 +-- utils.py
 
 ```
+Form the csv file for the feature set such that the labels of the corresponding samples are integer values present in the last column of the csv file. Then, to run the Genetic Algorithm for the optimal feature subset selection run the following:
 
-Run: `python main.py --csv_name feature_set.csv`
+`python GA.py --csv_name feature_set.csv`
