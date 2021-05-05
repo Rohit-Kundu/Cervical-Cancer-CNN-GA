@@ -9,7 +9,7 @@ To install the dependencies, run the following using the command prompt:
 
 `pip install -r requirements.txt`
 
-## Running the code on the COVID data
+## Running the code on the Cervical Cytology data
 
 
 
