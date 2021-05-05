@@ -21,11 +21,10 @@ Required Directory Structure:
 |   +-- .
 |   +-- train
 |   +-- val
-+-- main.py
-+-- probability_extraction.py
-+-- ensemble.py
-+-- sugeno_integral.py
++-- CNN_Feature_Extractor.py
++-- GA.py
++-- utils.py
 
 ```
 
-Run: `python main.py --data_directory "D:/data"`
+Run: `python main.py --csv_name feature_set.csv`
