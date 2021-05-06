@@ -1,6 +1,6 @@
 import numpy as np
 import sklearn.svm
-import random
+import random,os
 from sklearn.metrics import classification_report, balanced_accuracy_score,confusion_matrix
 from sklearn.base import BaseEstimator, ClassifierMixin
 from sklearn.preprocessing import label_binarize
@@ -22,7 +22,7 @@ def classification_accuracy(labels, predictions):
 
 def metrics(labels,predictions,classes):
     print("Classification Report:")
-    print(classification_report(labels, predictions, target_names = classes))
+    print(classification_report(labels, predictions, target_names = classes,digits=4))
     matrix = confusion_matrix(labels, predictions)
     print("Confusion matrix:")
     print(matrix)
@@ -118,5 +118,7 @@ def plot_roc(val_label,decision_val, classes, fold, caption='ROC Curve'):
     plt.ylabel('True Positive Rate')
     plt.title(caption)
     plt.legend(loc="lower right")
-    plt.savefig(str(len(classes))+"Fold"+str(fold)+'.png',dpi=300)
-    #plt.show()
+    dst = "roc_curves/"
+    if not os.path.exists(dst):
+        os.makedirs(dst)
+    plt.savefig(dst+str(len(classes))+"Fold"+str(fold)+'.png',dpi=300)
