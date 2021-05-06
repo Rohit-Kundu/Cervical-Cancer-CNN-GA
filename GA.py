@@ -13,7 +13,7 @@ parser.add_argument('--generations', type=int, default = 50, help='Number of Gen
 parser.add_argument('--mutation', type=int, default = 6, help='Percentage of mutation in the Genetic Algorithm')
 args = parser.parse_args()
 
-root = "../"
+root = "./"
 if root[-1]!='/':
     root+='/'
 csv_path = args.csv_name
@@ -61,7 +61,7 @@ kfold = KFold(Fold, True, 1)
 #The main program
 sol_per_pop = args.pop_size # Population size
 num_parents_mating = (int)(sol_per_pop*0.5) # Number of parents inside the mating pool.
-num_mutations = (int)(sol_per_pop*num_feature_elements*args.mutation/100) # Number of elements to mutate.
+num_mutations = args.mutation#(int)(sol_per_pop*num_feature_elements*args.mutation/100) # Number of elements to mutate.
 num_generations = args.generations #Number of generations in each fold
 
 print("Population size: {}".format(sol_per_pop))
@@ -154,6 +154,7 @@ for train_index, test_index in kfold.split(data_inputs):
             cl_name=[]
             for i in range(num_classes):
                 cl_name.append(i+1)
+
             #plot_roc(test_label,decision_test, cl_name, f+1, caption='ROC')
 
             test=best_outputs_test[-1]
@@ -163,6 +164,9 @@ for train_index, test_index in kfold.split(data_inputs):
 
         if best_outputs_test[-1]>fold_acc:
             fold_acc = best_outputs_test[-1]
+
+        metrics(test_label,prediction_test,classes)
+        plot_roc(test_label,decision_test, cl_name, f+1, caption='ROC')
 
         # Selecting the best parents in the population for mating.
         parents = select_mating_pool(new_population, fitness, num_parents_mating)
@@ -187,4 +191,3 @@ print("Best Accuracy: ", best_solution_fitness)
 
 toc=time.time()
 print("\nComputation time is {} minutes".format((toc-tic)/60))
-
