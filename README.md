@@ -22,6 +22,7 @@ Required Directory Structure:
 |   +-- train
 |   +-- val
 +-- CNN_Feature_Extractor.py
++-- mendeley_features.csv
 +-- GA.py
 +-- utils.py
 
