@@ -26,6 +26,8 @@ Required Directory Structure:
 +-- utils.py
 
 ```
-Form the csv file for the feature set such that the labels of the corresponding samples are integer values present in the last column of the csv file. Then, to run the Genetic Algorithm for the optimal feature subset selection run the following:
+Form the csv file for the feature set such that the labels of the corresponding samples are integer values present in the last column of the csv file. The feature set (GoogLeNet+ResNet-18) obtained from the Mendeley LBC dataset has been provided in this repository, for example. To run the Genetic Algorithm for the optimal feature subset selection run the following:
 
-`python GA.py --csv_name feature_set.csv`
+`python GA.py --csv_name mendeley_features.csv --csv_header yes`
+
+If your csv file does not contain headers, just set `--csv_header` to `no`, or just remove the field (since `default='no'` has been set in the code).
