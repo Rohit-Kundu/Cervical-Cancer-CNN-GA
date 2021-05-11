@@ -31,4 +31,4 @@ Form the csv file for the feature set such that the labels of the corresponding 
 
 `python GA.py --csv_name mendeley_features.csv --csv_header yes`
 
-If your csv file does not contain headers, just set `--csv_header` to `no`, or just remove the field (since `default='no'` has been set in the code).
+If your csv file does not contain headers, set `--csv_header` to `no`, or just remove the field (since `default='no'` has been set in the code).
